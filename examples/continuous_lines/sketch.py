@@ -1,3 +1,10 @@
+"""
+Continuous Lines
+Adapted from https://p5js.org/examples/drawing-continuous-lines.html
+CC-BY-NC-SA
+
+Click and drag the mouse to draw a line. 
+"""
 import proceso as p5
 
 

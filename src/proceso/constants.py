@@ -274,3 +274,8 @@ FALLBACK: str = _p5js.FALLBACK
 CONTAIN: str = _p5js.CONTAIN
 
 COVER: str = _p5js.COVER
+
+# CAMERA
+VIDEO: str = _p5js.VIDEO
+
+AUDIO: str = _p5js.AUDIO

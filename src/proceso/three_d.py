@@ -51,7 +51,7 @@ def no_debug_mode():
 # ======
 # Lights
 # ======
-def lights(
+def ambient_light(
     value: str | int | list[int],
     v2: int | None = None,
     v3: int | None = None,
@@ -68,13 +68,13 @@ def lights(
     will cause them to only have an effect the first time through the loop.
     """
     if v4:
-        _p5js.lights(value, v2, v3, v4)
+        _p5js.ambientLight(value, v2, v3, v4)
     elif v3:
-        _p5js.lights(value, v2, v3)
+        _p5js.ambientLight(value, v2, v3)
     elif v2:
-        _p5js.lights(value, v2)
+        _p5js.ambientLight(value, v2)
     else:
-        _p5js.lights(to_js(value))
+        _p5js.ambientLight(to_js(value))
 
 
 def specular_color(

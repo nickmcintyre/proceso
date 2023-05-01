@@ -123,6 +123,9 @@ from .constants import (
     FALLBACK,
     CONTAIN,
     COVER,
+    # CAMERA
+    VIDEO,
+    AUDIO,
 )
 from .colors import (
     # Creating & Reading
@@ -338,7 +341,7 @@ from .three_d import (
     debug_mode,
     no_debug_mode,
     # Lights
-    lights,
+    ambient_light,
     specular_color,
     directional_light,
     point_light,
@@ -877,6 +880,6 @@ def run(
     if callable(exit_pointer_lock):
         _p5js.exitPointerLock = create_proxy(exit_pointer_lock)
 
-    # FIXME: This is a hack
+    # FIXME: This is a hack to make preload work
     _p5js.remove()
     _init_global_mode()
