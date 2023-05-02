@@ -24,7 +24,7 @@ def setup():
 def draw():
     p5.background(255)
     p5.image(capture, 0, 0, 320, 240)
-    p5.filter(p5.INVERT)
+    p5.apply_filter(p5.INVERT)
 
 
 p5.run(setup=setup, draw=draw)

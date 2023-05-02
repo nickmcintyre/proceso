@@ -217,10 +217,10 @@ from .images import (
     # Pixels
     blend,
     copy,
-    filter,
-    get,
+    apply_filter,
+    get_pixels,
     load_pixels,
-    set,
+    set_pixels,
     update_pixels,
 )
 from .math import (
@@ -588,9 +588,9 @@ turn_axis: Annotated[
 # device_moved = _p5js.deviceMoved
 # device_turned = _p5js.deviceTurned
 # device_shaken = _p5js.deviceShaken
-key_is_pressed: Annotated[
+is_key_pressed: Annotated[
     bool,
-    """The boolean system variable key_is_pressed is True if any key is
+    """The boolean system variable is_key_pressed is True if any key is
     pressed and False if no keys are pressed.
     """,
 ] = _p5js.keyIsPressed
@@ -700,9 +700,9 @@ mouse_button: Annotated[
     different browsers may track mouse_button differently.
     """,
 ] = _p5js.mouseButton
-mouse_is_pressed: Annotated[
+is_mouse_pressed: Annotated[
     bool,
-    """The boolean system variable mouse_is_pressed is True if the mouse is
+    """The boolean system variable is_mouse_pressed is True if the mouse is
     pressed and False if not.
     """,
 ] = _p5js.mouseIsPressed
@@ -748,10 +748,10 @@ def _update_system_variables():
     global pacceleration_x, pacceleration_y, pacceleration_z
     global rotation_x, rotation_y, rotation_z
     global protation_x, protation_y, protation_z
-    global turn_axis, key_is_pressed, key, key_code
+    global turn_axis, is_key_pressed, key, key_code
     global moved_x, moved_y, mouse_x, mouse_y, pmouse_x, pmouse_y
     global winmouse_x, winmouse_y, pwinmouse_x, pwinmouse_y
-    global mouse_button, mouse_is_pressed
+    global mouse_button, is_mouse_pressed
     global touches
     global pixels
 
@@ -780,7 +780,7 @@ def _update_system_variables():
     protation_y = _p5js.pRotationY
     protation_z = _p5js.pRotationZ
     turn_axis = _p5js.turnAxis
-    key_is_pressed = _p5js.keyIsPressed
+    is_key_pressed = _p5js.keyIsPressed
     key = _p5js.key
     key_code = _p5js.keyCode
     moved_x = _p5js.movedX
@@ -794,7 +794,7 @@ def _update_system_variables():
     pwinmouse_x = _p5js.pwinMouseX
     pwinmouse_y = _p5js.pwinMouseY
     mouse_button = _p5js.mouseButton
-    mouse_is_pressed = _p5js.mouseIsPressed
+    is_mouse_pressed = _p5js.mouseIsPressed
     touches = _p5js.touches
     pixels = _p5js.pixels
 

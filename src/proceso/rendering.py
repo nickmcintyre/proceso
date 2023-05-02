@@ -6,10 +6,10 @@ from .constants import P2D
 
 def create_canvas(width: int, height: int, renderer: str = P2D) -> object:
     """Creates a canvas element in the document and sets its dimensions in
-    pixels.
+    pixels. Alias of size().
 
     This method should be called only once at the start of setup(). Calling
-    create_canvas more than once in a sketch will result in very unpredictable
+    create_canvas() more than once in a sketch will result in very unpredictable
     behavior. If you want more than one drawing canvas you could use
     create_graphics() (hidden by default but it can be shown).
 
@@ -20,6 +20,27 @@ def create_canvas(width: int, height: int, renderer: str = P2D) -> object:
 
     The system variables width and height are set by the parameters passed to
     this function. If create_canvas() is not used, the window will be given a
+    default size of 100×100 pixels.
+    """
+    return _p5js.createCanvas(width, height, renderer)
+
+
+def size(width: int, height: int, renderer: str = P2D) -> object:
+    """Creates a canvas element in the document and sets its dimensions in
+    pixels. Alias of create_canvas().
+
+    This method should be called only once at the start of setup(). Calling
+    size() more than once in a sketch will result in very unpredictable
+    behavior. If you want more than one drawing canvas you could use
+    create_graphics() (hidden by default but it can be shown).
+
+    Important note: in 2D mode (i.e. when p5.Renderer is not set) the origin
+    (0,0) is positioned at the top left of the screen. In 3D mode (i.e. when
+    p5.Renderer is set to WEBGL), the origin is positioned at the center of
+    the canvas. See this issue for more information.
+
+    The system variables width and height are set by the parameters passed to
+    this function. If size() is not used, the window will be given a
     default size of 100×100 pixels.
     """
     return _p5js.createCanvas(width, height, renderer)

@@ -14,7 +14,7 @@ Here is an example of how to create a proceso sketch with PyScript:
 
     <link rel="stylesheet" href="https://pyscript.net/releases/2023.03.1/pyscript.css" />
     <script defer src="https://pyscript.net/releases/2023.03.1/pyscript.js"></script>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
     <py-config>
         packages = ["numpy", "proceso"]
@@ -56,7 +56,7 @@ def draw():
     if pos.y < r or pos.y > p5.height - r:
         vel.y *= -1
 
-    if p5.mouse_is_pressed == True:
+    if p5.is_mouse_pressed == True:
         p5.background("dodgerblue")
 
 
@@ -65,13 +65,14 @@ p5.run(setup=setup, draw=draw)
 
 # Roadmap
 - Improve documentation
-- Fix bugs (i.e., `load_model()`)
-- Translate p5.js test suite?
+- Fix known bugs
+- Finish API
 - Support JupyterLite
+- Translate p5.js test suite?
 - Add CLI with hot reload
 - Add bindings for p5.js addon libraries
 
 # Acknowledgements
 - proceso is, first and foremost, an interface to the p5.js library. Nearly all of the package's documentation and examples are adapted from their p5.js counterparts. Portions of the source code are also adapted from the original JavaScript implementation.
-- The `Vector` class is lovingly borrowed from py5.
+- The `Vector` class is lovingly borrowed from py5 as are most of py5's naming conventions.
 - [Basthon](https://framagit.org/basthon/), [Py5.js](https://github.com/Luxapodular/Py5.js), and [pyp5js](https://github.com/berinhard/pyp5js/) all pointed the way. 

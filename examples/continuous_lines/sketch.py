@@ -15,7 +15,7 @@ def setup():
 
 def draw():
     p5.stroke(255)
-    if p5.mouse_is_pressed == True:
+    if p5.is_mouse_pressed == True:
         p5.line(p5.mouse_x, p5.mouse_y, p5.pmouse_x, p5.pmouse_y)
 
 

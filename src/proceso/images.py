@@ -13,7 +13,7 @@ def create_image(width: int, height: int) -> object:
     (including an appropriate factor for the pixel_density) of the display
     window x4, representing the R, G, B, A values in order for each pixel,
     moving from left to right across each row, then down each column. See
-    .pixels for more info. It may also be simpler to use set() or get().
+    .pixels for more info. It may also be simpler to use set_pixels() or get_pixels().
 
     Before accessing the pixels of an image, the data must loaded with the
     load_pixels() function. After the list data has been modified, the
@@ -205,7 +205,7 @@ def blend(
     dy: int,
     dw: int,
     dh: int,
-    blend_mode: str
+    blend_mode: str,
 ):
     """Copies a region of pixels from one image to another, using a specified
     blend mode to do the operation.
@@ -233,7 +233,7 @@ def copy(
     _p5js.copy(src_image, sx, sy, sw, sh, dx, dy, dw, dh)
 
 
-def filter(filter_type: str, filter_param: float | None = None):
+def apply_filter(filter_type: str, filter_param: float | None = None):
     """Applies a filter to the canvas.
     The presets options are:
 
@@ -261,7 +261,7 @@ def filter(filter_type: str, filter_param: float | None = None):
 
     DILATE Increases the light areas. No parameter is used.
 
-    filter() does not work in WEBGL mode. A similar effect can be achieved in
+    apply_filter() does not work in WEBGL mode. A similar effect can be achieved in
     WEBGL mode using custom shaders. Adam Ferriss has written a selection of
     shader examples that contains many of the effects present in the filter
     examples.
@@ -269,7 +269,9 @@ def filter(filter_type: str, filter_param: float | None = None):
     _p5js.filter(filter_type, filter_param)
 
 
-def get(x: int, y: int, width: int | None = None, height: int | None = None) -> list[float] | object:
+def get_pixels(
+    x: int, y: int, width: int | None = None, height: int | None = None
+) -> list[float] | object:
     """Get a region of pixels, or a single pixel, from the canvas.
 
     Returns a list of [R,G,B,A] values for any pixel or grabs a section of
@@ -279,7 +281,7 @@ def get(x: int, y: int, width: int | None = None, height: int | None = None) -> 
     getting an image, the x and y parameters define the coordinates for the
     upper-left corner of the image, regardless of the current image_mode().
 
-    Getting the color of a single pixel with get(x, y) is easy, but not as
+    Getting the color of a single pixel with get_pixels(x, y) is easy, but not as
     fast as grabbing the data directly from pixels[].
     """
     return _p5js.get(x, y, width, height)
@@ -288,13 +290,13 @@ def get(x: int, y: int, width: int | None = None, height: int | None = None) -> 
 def load_pixels():
     """Loads the pixel data for the display window into the pixels[] list.
     This function must always be called before reading from or writing to
-    pixels[]. Note that only changes made with set() or direct manipulation of
+    pixels[]. Note that only changes made with set_pixels() or direct manipulation of
     pixels[] will occur.
     """
     _p5js.loadPixels()
 
 
-def set(x: int, y: int, c: float | list[float] | object):
+def set_pixels(x: int, y: int, c: float | list[float] | object):
     """Changes the color of any pixel, or writes an image directly to the
     display window.
     The x and y parameters specify the pixel to change and the c parameter
@@ -303,11 +305,11 @@ def set(x: int, y: int, c: float | list[float] | object):
     image, the x and y parameters define the coordinates for the upper-left
     corner of the image, regardless of the current imageMode().
 
-    After using set(), you must call updatePixels() for your changes to
+    After using set_pixels(), you must call update_pixels() for your changes to
     appear. This should be called once all pixels have been set, and must be
-    called before calling .get() or drawing the image.
+    called before calling get_pixels() or drawing the image.
 
-    Setting the color of a single pixel with set(x, y) is easy, but not as
+    Setting the color of a single pixel with set_pixels(x, y) is easy, but not as
     fast as putting the data directly into pixels[]. Setting the pixels[]
     values directly may be complicated when working with a retina display, but
     will perform better when lots of pixels need to be set directly on every
@@ -319,9 +321,9 @@ def set(x: int, y: int, c: float | list[float] | object):
 def update_pixels():
     """Updates the display window with the data in the pixels[] list.
     Use in conjunction with loadPixels(). If you're only reading pixels from
-    the list, there's no need to call updatePixels() — updating is only
-    necessary to apply changes. updatePixels() should be called anytime the
-    pixels list is manipulated or set() is called, and only changes made with
-    set() or direct changes to pixels[] will occur.
+    the list, there's no need to call update_pixels() — updating is only
+    necessary to apply changes. update_pixels() should be called anytime the
+    pixels list is manipulated or set_pixels() is called, and only changes made with
+    set_pixels() or direct changes to pixels[] will occur.
     """
     _p5js.updatePixels()
