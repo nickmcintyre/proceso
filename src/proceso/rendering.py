@@ -46,6 +46,8 @@ class Rendering(BaseSketch):
         this function. If size() is not used, the window will be given a
         default size of 100×100 pixels.
         """
+        self.width = width
+        self.height = height
         return self._p5js.createCanvas(width, height, renderer)
 
     def resize_canvas(self, width: int, height: int, no_redraw: bool | None = None):
