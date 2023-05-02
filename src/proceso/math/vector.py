@@ -21,6 +21,7 @@ from __future__ import annotations
 import operator
 from collections.abc import Sequence, Iterable
 import re
+import warnings
 
 import numpy as np
 
@@ -751,9 +752,7 @@ class Vector(Sequence):
         adjust the vector's magnitude to that value. Negative values will result in an
         error.
         """
-        if mag < 0:
-            raise RuntimeError("Cannot set magnitude to a negative number")
-        elif mag == 0:
+        if mag == 0:
             self._data[:] = 0
         else:
             self.normalize()
@@ -806,7 +805,9 @@ class Vector(Sequence):
             self._data /= mag
             return self
         else:
-            raise RuntimeError("Cannot normalize Vector of zeros")
+            warnings.warn(
+                "Using normalize on a zero vector has no effect", stacklevel=2
+            )
 
     def _get_norm(self) -> Vector:
         """Normalized copy of the vector.

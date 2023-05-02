@@ -7,7 +7,10 @@ Demonstration of Craig Reynolds' "Flocking" behavior.
 (Rules: Cohesion, Separation, Alignment.)
 From natureofcode.com.
 """
-import proceso as p5
+from proceso import Sketch
+
+
+p5 = Sketch()
 
 
 boids = []
@@ -175,4 +178,4 @@ class Boid:
             return p5.Vector(0, 0)
 
 
-p5.run(setup=setup, draw=draw)
+p5.run_sketch(setup=setup, draw=draw)

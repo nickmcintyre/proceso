@@ -7,8 +7,10 @@ Capture video from the webcam and display on the canvas as well with invert
 filter. Note that by default the capture feed shows up, too. You can hide the
 feed by uncommenting the capture.hide() line. 
 """
-import proceso as p5
+from proceso import Sketch
 
+
+p5 = Sketch()
 
 capture = None
 
@@ -27,4 +29,4 @@ def draw():
     p5.apply_filter(p5.INVERT)
 
 
-p5.run(setup=setup, draw=draw)
+p5.run_sketch(setup=setup, draw=draw)

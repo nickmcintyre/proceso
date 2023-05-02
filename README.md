@@ -30,7 +30,10 @@ Here is an example of how to create a proceso sketch with PyScript:
 ```
 
 ```python
-import proceso as p5
+from proceso import Sketch
+
+
+p5 = Sketch()
 
 
 pos = p5.Vector(200, 200)
@@ -60,7 +63,7 @@ def draw():
         p5.background("dodgerblue")
 
 
-p5.run(setup=setup, draw=draw)
+p5.run_sketch(setup=setup, draw=draw)
 ```
 
 # Roadmap

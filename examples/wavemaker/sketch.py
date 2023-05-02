@@ -7,7 +7,10 @@ This illustrates how waves (like water waves) emerge from particles
 oscillating in place. Move your mouse to direct the wave. Contributed by
 Aatish Bhatia, inspired by Orbiters by Dave Whyte. 
 """
-import proceso as p5
+from proceso import Sketch
+
+
+p5 = Sketch()
 
 
 def setup():
@@ -36,4 +39,4 @@ def draw():
             p5.circle(my_x, my_y, 10)  # draw particle
 
 
-p5.run(setup=setup, draw=draw)
+p5.run_sketch(setup=setup, draw=draw)

@@ -1,281 +1,509 @@
 from typing import Annotated
 
-from ._binding import _p5js
 
+class Constants:
+    _p5js: object
 
-# GRAPHICS RENDERER
-P2D: Annotated[
-    str,
-    "The default, two-dimensional renderer."
-] = _p5js.P2D
-WEBGL: Annotated[
-    str,
-    "One of the two render modes in p5: P2D (default renderer) and WEBGL.Enables 3D render by introducing the third dimension: Z. "
-] = _p5js.WEBGL
+    # GRAPHICS RENDERER
+    P2D: Annotated[str, "The default, two-dimensional renderer."]
+    WEBGL: Annotated[
+        str,
+        "One of the two render modes in p5: P2D (default renderer) and WEBGL.Enables 3D render by introducing the third dimension: Z. ",
+    ]
 
-# TRIGONOMETRY
-HALF_PI: Annotated[
-    float,
-    """HALF_PI is a mathematical constant with the value 1.57079632679489661923. It is half the ratio of the circumference of a circle to its diameter.
-    It is useful in combination with the trigonometric functions sin() and cos().
+    # TRIGONOMETRY
+    HALF_PI: Annotated[
+        float,
+        """HALF_PI is a mathematical constant with the value 1.57079632679489661923. It is half the ratio of the circumference of a circle to its diameter.
+        It is useful in combination with the trigonometric functions sin() and cos().
+        """,
+    ]
+    PI: Annotated[
+        float,
+        """PI is a mathematical constant with the value 3.14159265358979323846. It is the ratio of the circumference of a circle to its diameter.
+        It is useful in combination with the trigonometric functions sin() and cos().
+        """,
+    ]
+    QUARTER_PI: Annotated[
+        float,
+        """QUARTER_PI is a mathematical constant with the value 0.7853982. It is one quarter the ratio of the circumference of a circle to its diameter.
+        It is useful in combination with the trigonometric functions sin() and cos().
+        """,
+    ]
+    TAU: Annotated[
+        float,
+        """TAU is an alias for TWO_PI, a mathematical constant with the value 6.28318530717958647693. It is twice the ratio of the circumference of a circle to its diameter.
+        It is useful in combination with the trigonometric functions sin() and cos().
+        """,
+    ]
+    TWO_PI: Annotated[
+        float,
+        """TWO_PI is a mathematical constant with the value 6.28318530717958647693. It is twice the ratio of the circumference of a circle to its diameter.
+        It is useful in combination with the trigonometric functions sin() and cos().
+        """,
+    ]
+    DEGREES: Annotated[
+        str,
+        "Constant to be used with the angle_mode() function, to set the mode in which p5 interprets and calculates angles (either DEGREES or RADIANS).",
+    ]
+    RADIANS: Annotated[
+        str,
+        "Constant to be used with the angle_mode() function, to set the mode in which p5 interprets and calculates angles (either RADIANS or DEGREES).",
+    ]
+
+    # SHAPE
+    CORNER: str
+
+    CORNERS: str
+
+    RADIUS: str
+
+    RIGHT: str
+
+    LEFT: str
+
+    CENTER: str
+
+    TOP: str
+
+    BOTTOM: str
+
+    BASELINE: str
+
+    POINTS: float
+
+    LINES: float
+
+    LINE_STRIP: float
+
+    LINE_LOOP: float
+
+    TRIANGLES: float
+
+    TRIANGLE_FAN: float
+
+    TRIANGLE_STRIP: float
+
+    QUADS: str
+
+    QUAD_STRIP: str
+
+    TESS: str
+
+    CLOSE: str
+
+    OPEN: str
+
+    CHORD: str
+
+    PIE: str
+
+    PROJECT: str
+
+    SQUARE: str
+
+    ROUND: str
+
+    BEVEL: str
+
+    MITER: str
+
+    # COLOR
+    RGB: str
+
+    HSB: Annotated[
+        str,
+        """HSB (hue, saturation, brightness) is a type of color model. You can learn more about it at
+    https://learnui.design/blog/the-hsb-color-system-practicioners-primer.html
     """,
-] = _p5js.HALF_PI
-PI: Annotated[
-    float,
-    """PI is a mathematical constant with the value 3.14159265358979323846. It is the ratio of the circumference of a circle to its diameter.
-    It is useful in combination with the trigonometric functions sin() and cos().
+    ]
+
+    HSL: str
+
+    # DOM EXTENSION
+    AUTO: Annotated[
+        str,
+        """AUTO allows us to automatically set the width or height of an element
+    (but not both), based on the current height and width of the element.
+    Only one parameter can be passed to size() function as AUTO, at a time.
     """,
-] = _p5js.PI
-QUARTER_PI: Annotated[
-    float,
-    """QUARTER_PI is a mathematical constant with the value 0.7853982. It is one quarter the ratio of the circumference of a circle to its diameter.
-    It is useful in combination with the trigonometric functions sin() and cos().
-    """,
-] = _p5js.QUARTER_PI
-TAU: Annotated[
-    float,
-    """TAU is an alias for TWO_PI, a mathematical constant with the value 6.28318530717958647693. It is twice the ratio of the circumference of a circle to its diameter.
-    It is useful in combination with the trigonometric functions sin() and cos().
-    """,
-] = _p5js.TAU
-TWO_PI: Annotated[
-    float,
-    """TWO_PI is a mathematical constant with the value 6.28318530717958647693. It is twice the ratio of the circumference of a circle to its diameter.
-    It is useful in combination with the trigonometric functions sin() and cos().
-    """,
-] = _p5js.TWO_PI
-DEGREES: Annotated[
-    str,
-    "Constant to be used with the angle_mode() function, to set the mode in which p5 interprets and calculates angles (either DEGREES or RADIANS).",
-] = _p5js.DEGREES
-RADIANS: Annotated[
-    str,
-    "Constant to be used with the angle_mode() function, to set the mode in which p5 interprets and calculates angles (either RADIANS or DEGREES).",
-] = _p5js.RADIANS
+    ]
 
-# SHAPE
-CORNER: str = _p5js.CORNER
+    # INPUT
+    ALT: int
 
-CORNERS: str = _p5js.CORNERS
+    BACKSPACE: int
 
-RADIUS: str = _p5js.RADIUS
+    CONTROL: int
 
-RIGHT: str = _p5js.RIGHT
+    DELETE: int
 
-LEFT: str = _p5js.LEFT
+    DOWN_ARROW: int
 
-CENTER: str = _p5js.CENTER
+    ENTER: int
 
-TOP: str = _p5js.TOP
+    ESCAPE: int
 
-BOTTOM: str = _p5js.BOTTOM
+    LEFT_ARROW: int
 
-BASELINE: str = _p5js.BASELINE
+    OPTION: int
 
-POINTS: float = _p5js.POINTS
+    RETURN: int
 
-LINES: float = _p5js.LINES
+    RIGHT_ARROW: int
 
-LINE_STRIP: float = _p5js.LINE_STRIP
+    SHIFT: int
 
-LINE_LOOP: float = _p5js.LINE_LOOP
+    TAB: int
 
-TRIANGLES: float = _p5js.TRIANGLES
+    UP_ARROW: int
 
-TRIANGLE_FAN: float = _p5js.TRIANGLE_FAN
+    # RENDERING
+    BLEND: str
 
-TRIANGLE_STRIP: float = _p5js.TRIANGLE_STRIP
+    REMOVE: str
 
-QUADS: str = _p5js.QUADS
+    ADD: str
 
-QUAD_STRIP: str = _p5js.QUAD_STRIP
+    DARKEST: str
 
-TESS: str = _p5js.TESS
+    LIGHTEST: str
 
-CLOSE: str = _p5js.CLOSE
+    DIFFERENCE: str
 
-OPEN: str = _p5js.OPEN
+    SUBTRACT: str
 
-CHORD: str = _p5js.CHORD
+    EXCLUSION: str
 
-PIE: str = _p5js.PIE
+    MULTIPLY: str
 
-PROJECT: str = _p5js.PROJECT # PEND: careful this is counterintuitive
+    SCREEN: str
 
-SQUARE: str = _p5js.SQUARE
+    REPLACE: str
 
-ROUND: str = _p5js.ROUND
+    OVERLAY: str
 
-BEVEL: str = _p5js.BEVEL
+    HARD_LIGHT: str
 
-MITER: str = _p5js.MITER
+    SOFT_LIGHT: str
 
-# COLOR
-RGB: str = _p5js.RGB
+    DODGE: str
 
-HSB: Annotated[
- str,
- """HSB (hue, saturation, brightness) is a type of color model. You can learn more about it at
-https://learnui.design/blog/the-hsb-color-system-practicioners-primer.html
- """
-] = _p5js.HSB
+    BURN: str
 
-HSL: str = _p5js.HSL
+    # FILTERS
+    THRESHOLD: str
 
-# DOM EXTENSION
-AUTO: Annotated[
-  str,
-  """AUTO allows us to automatically set the width or height of an element
-  (but not both), based on the current height and width of the element.
-  Only one parameter can be passed to size() function as AUTO, at a time.
-  """
-] = _p5js.AUTO
+    GRAY: str
 
-# INPUT
-ALT: int = _p5js.ALT
+    OPAQUE: str
 
-BACKSPACE: int = _p5js.BACKSPACE
+    INVERT: str
 
-CONTROL: int = _p5js.CONTROL
+    POSTERIZE: str
 
-DELETE: int = _p5js.DELETE
+    DILATE: str
 
-DOWN_ARROW: int = _p5js.DOWN_ARROW
+    ERODE: str
 
-ENTER: int = _p5js.ENTER
+    BLUR: str
 
-ESCAPE: int = _p5js.ESCAPE
+    # TYPOGRAPHY
+    NORMAL: str
 
-LEFT_ARROW: int = _p5js.LEFT_ARROW
+    ITALIC: str
 
-OPTION: int = _p5js.OPTION
+    BOLD: str
 
-RETURN: int = _p5js.RETURN
+    BOLDITALIC: str
 
-RIGHT_ARROW: int = _p5js.RIGHT_ARROW
+    CHAR: str
 
-SHIFT: int = _p5js.SHIFT
+    WORD: str
 
-TAB: int = _p5js.TAB
+    # VERTICES
+    LINEAR: str
 
-UP_ARROW: int = _p5js.UP_ARROW
+    QUADRATIC: str
 
-# RENDERING
-BLEND: str = _p5js.BLEND
+    BEZIER: str
 
-REMOVE: str = _p5js.REMOVE
+    CURVE: str
 
-ADD: str = _p5js.ADD
+    # WEBGL DRAWMODES
 
-DARKEST: str = _p5js.DARKEST
+    STROKE: str
 
-LIGHTEST: str = _p5js.LIGHTEST
+    FILL: str
 
-DIFFERENCE: str = _p5js.DIFFERENCE
+    TEXTURE: str
 
-SUBTRACT: str = _p5js.SUBTRACT
+    IMMEDIATE: str
 
-EXCLUSION: str = _p5js.EXCLUSION
+    # WEBGL TEXTURE MODE
+    # NORMAL already exists for typography
+    IMAGE: str
 
-MULTIPLY: str = _p5js.MULTIPLY
+    # WEBGL TEXTURE WRAP AND FILTERING
+    # LINEAR already exists above
+    NEAREST: str
 
-SCREEN: str = _p5js.SCREEN
+    REPEAT: str
 
-REPLACE: str = _p5js.REPLACE
+    CLAMP: str
 
-OVERLAY: str = _p5js.OVERLAY
+    MIRROR: str
 
-HARD_LIGHT: str = _p5js.HARD_LIGHT
+    # DEVICE-ORIENTATION
+    LANDSCAPE: str
 
-SOFT_LIGHT: str = _p5js.SOFT_LIGHT
+    PORTRAIT: str
 
-DODGE: str = _p5js.DODGE
+    # ACCESSIBILITY
 
-BURN: str = _p5js.BURN
+    GRID: str
 
-# FILTERS
-THRESHOLD: str = _p5js.THRESHOLD
+    AXES: str
 
-GRAY: str = _p5js.GRAY
+    LABEL: str
 
-OPAQUE: str = _p5js.OPAQUE
+    FALLBACK: str
 
-INVERT: str = _p5js.INVERT
+    CONTAIN: str
 
-POSTERIZE: str = _p5js.POSTERIZE
+    COVER: str
 
-DILATE: str = _p5js.DILATE
+    # CAMERA
+    VIDEO: str
 
-ERODE: str = _p5js.ERODE
+    AUDIO: str
 
-BLUR: str = _p5js.BLUR
+    def _init_constants(self):
+        # GRAPHICS RENDERER
+        self.P2D = self._p5js.P2D
+        self.WEBGL = self._p5js.WEBGL
 
-# TYPOGRAPHY
-NORMAL: str = _p5js.NORMAL
+        # TRIGONOMETRY
+        self.HALF_PI = self._p5js.HALF_PI
+        self.PI = self._p5js.PI
+        self.QUARTER_PI = self._p5js.QUARTER_PI
+        self.TAU = self._p5js.TAU
+        self.TWO_PI = self._p5js.TWO_PI
+        self.DEGREES = self._p5js.DEGREES
+        self.RADIANS = self._p5js.RADIANS
 
-ITALIC: str = _p5js.ITALIC
+        # SHAPE
+        self.CORNER = self._p5js.CORNER
 
-BOLD: str = _p5js.BOLD
+        self.CORNERS = self._p5js.CORNERS
 
-BOLDITALIC: str = _p5js.BOLDITALIC
+        self.RADIUS = self._p5js.RADIUS
 
-CHAR: str = _p5js.CHAR
+        self.RIGHT = self._p5js.RIGHT
 
-WORD: str = _p5js.WORD
+        self.LEFT = self._p5js.LEFT
 
-# VERTICES
-LINEAR: str = _p5js.LINEAR
+        self.CENTER = self._p5js.CENTER
 
-QUADRATIC: str = _p5js.QUADRATIC
+        self.TOP = self._p5js.TOP
 
-BEZIER: str = _p5js.BEZIER
+        self.BOTTOM = self._p5js.BOTTOM
 
-CURVE: str = _p5js.CURVE
+        self.BASELINE = self._p5js.BASELINE
 
-# WEBGL DRAWMODES
+        self.POINTS = self._p5js.POINTS
 
-STROKE: str = _p5js.STROKE
+        self.LINES = self._p5js.LINES
 
-FILL: str = _p5js.FILL
+        self.LINE_STRIP = self._p5js.LINE_STRIP
 
-TEXTURE: str = _p5js.TEXTURE
+        self.LINE_LOOP = self._p5js.LINE_LOOP
 
-IMMEDIATE: str = _p5js.IMMEDIATE
+        self.TRIANGLES = self._p5js.TRIANGLES
 
-# WEBGL TEXTURE MODE
-# NORMAL already exists for typography
-IMAGE: str = _p5js.IMAGE
+        self.TRIANGLE_FAN = self._p5js.TRIANGLE_FAN
 
-# WEBGL TEXTURE WRAP AND FILTERING
-# LINEAR already exists above
-NEAREST: str = _p5js.NEAREST
+        self.TRIANGLE_STRIP = self._p5js.TRIANGLE_STRIP
 
-REPEAT: str = _p5js.REPEAT
+        self.QUADS = self._p5js.QUADS
 
-CLAMP: str = _p5js.CLAMP
+        self.QUAD_STRIP = self._p5js.QUAD_STRIP
 
-MIRROR: str = _p5js.MIRROR
+        self.TESS = self._p5js.TESS
 
-# DEVICE-ORIENTATION
-LANDSCAPE: str = _p5js.LANDSCAPE
+        self.CLOSE = self._p5js.CLOSE
 
-PORTRAIT: str = _p5js.PORTRAIT
+        self.OPEN = self._p5js.OPEN
 
-# ACCESSIBILITY
+        self.CHORD = self._p5js.CHORD
 
-GRID: str = _p5js.GRID
+        self.PIE = self._p5js.PIE
 
-AXES: str = _p5js.AXES
+        self.PROJECT = self._p5js.PROJECT  # PEND: careful this is counterintuitive
 
-LABEL: str = _p5js.LABEL
+        self.SQUARE = self._p5js.SQUARE
 
-FALLBACK: str = _p5js.FALLBACK
+        self.ROUND = self._p5js.ROUND
 
-CONTAIN: str = _p5js.CONTAIN
+        self.BEVEL = self._p5js.BEVEL
 
-COVER: str = _p5js.COVER
+        self.MITER = self._p5js.MITER
 
-# CAMERA
-VIDEO: str = _p5js.VIDEO
+        # COLOR
+        self.RGB = self._p5js.RGB
 
-AUDIO: str = _p5js.AUDIO
+        self.HSB = self._p5js.HSB
+
+        self.HSL = self._p5js.HSL
+
+        # DOM EXTENSION
+        self.AUTO = self._p5js.AUTO
+
+        # INPUT
+        self.ALT = self._p5js.ALT
+
+        self.BACKSPACE = self._p5js.BACKSPACE
+
+        self.CONTROL = self._p5js.CONTROL
+
+        self.DELETE = self._p5js.DELETE
+
+        self.DOWN_ARROW = self._p5js.DOWN_ARROW
+
+        self.ENTER = self._p5js.ENTER
+
+        self.ESCAPE = self._p5js.ESCAPE
+
+        self.LEFT_ARROW = self._p5js.LEFT_ARROW
+
+        self.OPTION = self._p5js.OPTION
+
+        self.RETURN = self._p5js.RETURN
+
+        self.RIGHT_ARROW = self._p5js.RIGHT_ARROW
+
+        self.SHIFT = self._p5js.SHIFT
+
+        self.TAB = self._p5js.TAB
+
+        self.UP_ARROW = self._p5js.UP_ARROW
+
+        # RENDERING
+        self.BLEND = self._p5js.BLEND
+
+        self.REMOVE = self._p5js.REMOVE
+
+        self.ADD = self._p5js.ADD
+
+        self.DARKEST = self._p5js.DARKEST
+
+        self.LIGHTEST = self._p5js.LIGHTEST
+
+        self.DIFFERENCE = self._p5js.DIFFERENCE
+
+        self.SUBTRACT = self._p5js.SUBTRACT
+
+        self.EXCLUSION = self._p5js.EXCLUSION
+
+        self.MULTIPLY = self._p5js.MULTIPLY
+
+        self.SCREEN = self._p5js.SCREEN
+
+        self.REPLACE = self._p5js.REPLACE
+
+        self.OVERLAY = self._p5js.OVERLAY
+
+        self.HARD_LIGHT = self._p5js.HARD_LIGHT
+
+        self.SOFT_LIGHT = self._p5js.SOFT_LIGHT
+
+        self.DODGE = self._p5js.DODGE
+
+        self.BURN = self._p5js.BURN
+
+        # FILTERS
+        self.THRESHOLD = self._p5js.THRESHOLD
+
+        self.GRAY = self._p5js.GRAY
+
+        self.OPAQUE = self._p5js.OPAQUE
+
+        self.INVERT = self._p5js.INVERT
+
+        self.POSTERIZE = self._p5js.POSTERIZE
+
+        self.DILATE = self._p5js.DILATE
+
+        self.ERODE = self._p5js.ERODE
+
+        self.BLUR = self._p5js.BLUR
+
+        # TYPOGRAPHY
+        self.NORMAL = self._p5js.NORMAL
+
+        self.ITALIC = self._p5js.ITALIC
+
+        self.BOLD = self._p5js.BOLD
+
+        self.BOLDITALIC = self._p5js.BOLDITALIC
+
+        self.CHAR = self._p5js.CHAR
+
+        self.WORD = self._p5js.WORD
+
+        # VERTICES
+        self.LINEAR = self._p5js.LINEAR
+
+        self.QUADRATIC = self._p5js.QUADRATIC
+
+        self.BEZIER = self._p5js.BEZIER
+
+        self.CURVE = self._p5js.CURVE
+
+        # WEBGL DRAWMODES
+
+        self.STROKE = self._p5js.STROKE
+
+        self.FILL = self._p5js.FILL
+
+        self.TEXTURE = self._p5js.TEXTURE
+
+        self.IMMEDIATE = self._p5js.IMMEDIATE
+
+        # WEBGL TEXTURE MODE
+        # NORMAL already exists for typography
+        self.IMAGE = self._p5js.IMAGE
+
+        # WEBGL TEXTURE WRAP AND FILTERING
+        # LINEAR already exists above
+        self.NEAREST = self._p5js.NEAREST
+
+        self.REPEAT = self._p5js.REPEAT
+
+        self.CLAMP = self._p5js.CLAMP
+
+        self.MIRROR = self._p5js.MIRROR
+
+        # DEVICE-ORIENTATION
+        self.LANDSCAPE = self._p5js.LANDSCAPE
+
+        self.PORTRAIT = self._p5js.PORTRAIT
+
+        # ACCESSIBILITY
+
+        self.GRID = self._p5js.GRID
+
+        self.AXES = self._p5js.AXES
+
+        self.LABEL = self._p5js.LABEL
+
+        self.FALLBACK = self._p5js.FALLBACK
+
+        self.CONTAIN = self._p5js.CONTAIN
+
+        self.COVER = self._p5js.COVER
+
+        # CAMERA
+        self.VIDEO = self._p5js.VIDEO
+
+        self.AUDIO = self._p5js.AUDIO

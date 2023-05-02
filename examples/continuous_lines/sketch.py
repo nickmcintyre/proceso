@@ -5,7 +5,10 @@ CC-BY-NC-SA
 
 Click and drag the mouse to draw a line. 
 """
-import proceso as p5
+from proceso import Sketch
+
+
+p5 = Sketch()
 
 
 def setup():
@@ -23,4 +26,4 @@ def key_pressed():
     p5.background("dodgerblue")
 
 
-p5.run(setup=setup, draw=draw, key_pressed=key_pressed)
+p5.run_sketch(setup=setup, draw=draw, key_pressed=key_pressed)

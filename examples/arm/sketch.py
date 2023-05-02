@@ -8,8 +8,10 @@ segment is controlled with the mouseX and mouseY position. The transformations
 applied to the first segment are also applied to the second segment because
 they are inside the same push() and pop() matrix group. 
 """
-import proceso as p5
+from proceso import Sketch
 
+
+p5 = Sketch()
 
 x: float
 y: float
@@ -52,4 +54,4 @@ def segment(x, y, a):
     p5.line(0, 0, seg_length, 0)
 
 
-p5.run(setup=setup, draw=draw)
+p5.run_sketch(setup=setup, draw=draw)
