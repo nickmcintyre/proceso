@@ -1,7 +1,7 @@
 # proceso
 > A Python package for creative coding on the web.
 
-proceso provides a Pythonic interface to the [p5.js](https://p5js.org) library. The package is designed for [Pyodide](https://pyodide.org)-based environments including [PyScript](https://pyscript.net) and (soonish) [JupyterLite](https://jupyterlite.readthedocs.io/en/latest/). Similar to [py5](https://py5coding.org/), proceso's goal is to integrate p5.js into the Python ecosystem with thoughtful choices about how to do so in the browser.
+proceso provides a Pythonic interface to the [p5.js](https://p5js.org) library. The package is designed for [Pyodide](https://pyodide.org)-based environments including [PyScript](https://pyscript.net) and (soonish) [JupyterLite](https://jupyterlite.readthedocs.io/en/latest/). Similar to [py5](https://py5coding.org), proceso's goal is to integrate p5.js into the Python ecosystem with thoughtful choices about how to do so in the browser.
 
 Here is an example of how to create a proceso sketch with PyScript:
 ```html
@@ -9,7 +9,7 @@ Here is an example of how to create a proceso sketch with PyScript:
 <html lang="en-us">
 
 <head>
-    <title>Bouncing Ball</title>
+    <title>My Sketch</title>
     <meta charset="utf-8" />
 
     <link rel="stylesheet" href="https://pyscript.net/releases/2023.03.1/pyscript.css" />
@@ -29,7 +29,9 @@ Here is an example of how to create a proceso sketch with PyScript:
 </html>
 ```
 
-## Static Sketch
+## Static Sketches
+
+Similar to [Processing](https://processing.org), proceso enables beginners to start programming with "static sketches" before introducing animation and interaction. The following example draws a few shapes and a flower on the screen.
 
 ```python
 from proceso import Sketch
@@ -60,7 +62,9 @@ for _ in range(10):
     p5.rotate(p5.PI / 5)
 ```
 
-## Active Sketch
+## Active Sketches
+
+proceso's "active sketches" provide the `run_sketch()` method to handle initialization, looping, and events. The sketch below animates a ball bouncing around the canvas and clears the canvas when a mouse press is detected.
 
 ```python
 from proceso import Sketch
