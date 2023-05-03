@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <title>REPL</title>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="https://pyscript.net/releases/2023.03.1/pyscript.css" />
+    <script defer src="https://pyscript.net/releases/2023.03.1/pyscript.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+    <py-config>
+        packages = ["numpy", "proceso"]
+    </py-config>
+</head>
+
+<body>
+    <main>
+        <strong>Press SHIFT+ENTER to execute a code cell</strong>
+    </main>
+    <py-repl auto-generate="true">
+        from proceso import Sketch
+
+
+        p5 = Sketch()
+
+        p5.create_canvas(400, 400)
+        p5.background("dodgerblue")
+        p5.circle(p5.width * 0.5, p5.height * 0.5, 50)
+    </py-repl>
+</body>
+
+</html>
