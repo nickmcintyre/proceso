@@ -11,7 +11,6 @@ from proceso import Sketch
 
 p5 = Sketch()
 
-
 objects = []
 eye_z: float
 

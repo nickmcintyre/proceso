@@ -4,6 +4,7 @@
 proceso provides a Pythonic interface to the [p5.js](https://p5js.org) library. The package is designed for [Pyodide](https://pyodide.org)-based environments including [PyScript](https://pyscript.net) and (soonish) [JupyterLite](https://jupyterlite.readthedocs.io/en/latest/). Similar to [py5](https://py5coding.org), proceso's goal is to integrate p5.js into the Python ecosystem with thoughtful choices about how to do so in the browser.
 
 Here is an example of how to create a proceso sketch with PyScript:
+
 ```html
 <!DOCTYPE html>
 <html lang="en-us">
@@ -103,7 +104,31 @@ def draw():
 p5.run_sketch(setup=setup, draw=draw)
 ```
 
-# Roadmap
+## Getting Started
+
+**Cloud (account required): PyScript**
+
+[PyScript](https://pyscript.com) is a great way to run proceso sketches with PyScript. Here is an example project that [simulates flocking](https://pyscript.com/view/4b2d42a1-0e0c-430f-8b20-4b2c7ff0dc3e/ab3d05fe-ae90-435b-b351-2029a591b574/latest/).
+
+**Cloud (no account required): JupyterLite**
+
+Coming soonish.
+
+**Local: Anaconda + VS Code**
+
+Here is one possible setup for running sketches on your local machine:
+
+1. Install the [Anaconda Distribution of Python](https://www.anaconda.com/download).
+2. Install [Visual Studio Code](https://code.visualstudio.com/).
+3. [Get started with Anaconda Navigator](https://docs.anaconda.com/free/navigator/) and create a new Python environment with Python 3.10.
+4. Use the Navigator to open a terminal with your new Python environment and `pip install proceso`.
+5. Open VS Code and install the [Microsoft Python extension](https://code.visualstudio.com/docs/languages/python) to enable helpful features such as documentation, autocompletion, and so on.
+6. [Select the interpreter](https://code.visualstudio.com/docs/python/environments#_manually-specify-an-interpreter) created by your new Python environment.
+7. Add your HTML, CSS, and Python files and start coding.
+8. [Open the terminal](https://code.visualstudio.com/docs/terminal/basics) in VS Code and run `python -m http.server` to view your sketch in the browser.
+
+## Roadmap
+
 - Improve documentation
 - Fix known bugs
 - Finish API
@@ -112,7 +137,8 @@ p5.run_sketch(setup=setup, draw=draw)
 - Add CLI with hot reload
 - Add bindings for p5.js addon libraries
 
-# Acknowledgements
+## Acknowledgements
+
 - proceso is, first and foremost, an interface to the p5.js library. Nearly all of the package's documentation and examples are adapted from their p5.js counterparts. Portions of the source code are also adapted from the original JavaScript implementation.
 - The `Vector` class is lovingly borrowed from py5 as are most of py5's naming conventions.
 - [Basthon](https://framagit.org/basthon/), [Py5.js](https://github.com/Luxapodular/Py5.js), and [pyp5js](https://github.com/berinhard/pyp5js/) all pointed the way. 

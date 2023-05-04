@@ -12,7 +12,6 @@ from proceso import Sketch
 
 p5 = Sketch()
 
-
 boids = []
 
 
@@ -58,9 +57,9 @@ class Boid:
         ali = self.align(boids)  # Alignment
         coh = self.cohesion(boids)  # Cohesion
         # Arbitrarily weight these forces
-        sep * 2.5
-        ali * 1.0
-        coh * 1.0
+        sep *= 2.5
+        ali *= 1.0
+        coh *= 1.0
         # Add the force vectors to acceleration
         self.apply_force(sep)
         self.apply_force(ali)
@@ -84,7 +83,7 @@ class Boid:
         )  # A vector pointing from the location to the target
         # Normalize desired and scale to maximum speed
         desired.normalize()
-        desired * self.maxspeed
+        desired *= self.maxspeed
         # Steering = Desired minus Velocity
         steer = desired - self.velocity
         steer.set_limit(self.maxforce)  # Limit to maximum steering force
