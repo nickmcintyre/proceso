@@ -5,6 +5,8 @@ proceso provides a Pythonic interface to the [p5.js](https://p5js.org) library. 
 
 Here is an example of how to create a proceso sketch with PyScript:
 
+**index.html**
+
 ```html
 <!DOCTYPE html>
 <html lang="en-us">
@@ -30,6 +32,29 @@ Here is an example of how to create a proceso sketch with PyScript:
 </html>
 ```
 
+**style.css**
+
+```css
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+canvas {
+    display: block;
+}
+```
+
+**sketch.py**
+
+```python
+from proceso import Sketch
+
+p5 = Sketch()
+p5.describe("A screen reader accessible description for the canvas.")
+```
+
 ## Static Sketches
 
 Similar to [Processing](https://processing.org), proceso enables beginners to start programming with "static sketches" before introducing animation and interaction. The following example draws a few shapes and a flower on the screen.
@@ -39,6 +64,7 @@ from proceso import Sketch
 
 
 p5 = Sketch()
+p5.describe("A rectangle, circle, triangle, and flower drawn in pink on a gray background.")
 
 # Create the canvas
 p5.create_canvas(720, 400)
@@ -65,40 +91,79 @@ for _ in range(10):
 
 ## Active Sketches
 
-proceso's "active sketches" provide the `run_sketch()` method to handle initialization, looping, and events. The sketch below animates a ball bouncing around the canvas and clears the canvas when a mouse press is detected.
+proceso's "active sketches" provide the `run_sketch()` method to handle initialization, looping, and events. The sketch below simulates the synchronization behavior observed in some species of fireflies.
 
 ```python
 from proceso import Sketch
 
 
 p5 = Sketch()
+p5.describe("Ten white circles moving in synchrony on a dark blue background.")
 
-
-pos = p5.Vector(200, 200)
-vel = p5.Vector.random(2)
-r = 25
+bugs = []
+num_bugs = 10
+coupling: object
+KN: float
 
 
 def setup():
-    p5.create_canvas(400, 400)
-    p5.background("#1e90ff")
-    p5.fill("orchid")
-    p5.stroke(255)
+    p5.create_canvas(720, 400)
+    global coupling
+    coupling = p5.create_slider(0, 10, 5)
+    for _ in range(num_bugs):
+        bugs.append(Bug())
 
 
 def draw():
-    global pos, vel
-    pos += vel
+    p5.background("midnightblue")
 
-    p5.circle(pos.x, pos.y, 2 * r)
+    global KN
+    KN = coupling.value() / num_bugs
 
-    if pos.x < r or pos.x > p5.width - r:
-        vel.x *= -1
-    if pos.y < r or pos.y > p5.height - r:
-        vel.y *= -1
+    for bug in bugs:
+        bug.sync()
 
-    if p5.is_mouse_pressed == True:
-        p5.background("dodgerblue")
+    for bug in bugs:
+        bug.draw()
+        bug.update()
+        bug.check_edges()
+
+
+class Bug:
+    def __init__(self):
+        self.x = p5.width * 0.5
+        self.y = p5.height * 0.5
+        self.r = 5
+        self.angle = p5.random(p5.TWO_PI)
+        self.dadt = 1
+        self.dt = 0.01
+        self.freq = p5.random(5, 10)
+
+    def draw(self):
+        a = p5.remap(self.angle % p5.TWO_PI, 0, p5.TWO_PI, 0, 255)
+        p5.fill(255, a)
+        p5.stroke(255, a)
+        p5.circle(self.x, self.y, 2 * self.r)
+
+    def update(self):
+        self.x += p5.cos(self.angle)
+        self.y += p5.sin(self.angle)
+        self.angle += self.dadt * self.dt
+
+    def check_edges(self):
+        if self.x > p5.width + self.r:
+            self.x = -self.r
+        if self.x < -self.r:
+            self.x = p5.width + self.r
+        if self.y > p5.height + self.r:
+            self.y = -self.r
+        if self.y < -self.r:
+            self.y = p5.height + self.r
+
+    def sync(self):
+        self.dadt = self.freq
+        for bug in bugs:
+            self.dadt += KN * p5.sin(bug.angle - self.angle)
 
 
 p5.run_sketch(setup=setup, draw=draw)

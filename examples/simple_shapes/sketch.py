@@ -3,7 +3,7 @@ Simple Shapes
 Adapted from https://p5js.org/examples/hello-p5-simple-shapes.html
 CC-BY-NC-SA
 
-This example includes a circle, square, triangle, and a flower. 
+This example includes a circle, rectangle, triangle, and a flower. 
 """
 from proceso import Sketch
 
@@ -20,8 +20,8 @@ p5.stroke(127, 63, 120)
 
 # A rectangle
 p5.rect(40, 120, 120, 40)
-# An ellipse
-p5.ellipse(240, 240, 80, 80)
+# A circle
+p5.circle(240, 240, 80)
 # A triangle
 p5.triangle(300, 100, 320, 100, 310, 80)
 
