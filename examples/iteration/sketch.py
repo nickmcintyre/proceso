@@ -9,6 +9,7 @@ from proceso import Sketch
 
 
 p5 = Sketch()
+p5.describe("Multiple sets of lines are drawn in grayscale on a dark gray background.")
 
 num = 14
 

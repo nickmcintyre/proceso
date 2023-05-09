@@ -4,15 +4,16 @@ Adapted from https://p5js.org/examples/arrays-array.html
 CC-BY-NC-SA
 
 Each piece of data in a list is identified by an index number representing its
-position in the array. Arrays are zero based, which means that the first
-element in the array is [0], the second element is [1], and so on. In this
-example, an array named "coswave" is created and filled with the cosine
+position in the array. Lists are zero based, which means that the first
+element in the list is [0], the second element is [1], and so on. In this
+example, a list named "coswave" is created and filled with the cosine
 values. This data is displayed three separate ways on the screen. 
 """
 from proceso import Sketch
 
 
 p5 = Sketch()
+p5.describe("Three rows of vertical lines whose stroke varies from black to white.")
 
 p5.create_canvas(720, 360)
 p5.background(255)

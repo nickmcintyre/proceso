@@ -10,6 +10,7 @@ from proceso import Sketch
 
 
 p5 = Sketch()
+p5.describe("A pink sphere is drawn on different surfaces as a person mouses over them.")
 
 objects = []
 eye_z: float

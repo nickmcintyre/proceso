@@ -13,6 +13,7 @@ from proceso import Sketch
 
 
 p5 = Sketch()
+p5.describe("A large circle is inscribed with smaller and smaller circles that shrink by half at each stage.")
 
 p5.create_canvas(720, 560)
 p5.no_stroke()

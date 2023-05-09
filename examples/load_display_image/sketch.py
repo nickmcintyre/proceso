@@ -10,6 +10,7 @@ from proceso import Sketch
 
 
 p5 = Sketch()
+p5.describe("Two copies of a photo of an astronaut walking on the moon are displayed, a small one embedded in a larger one.")
 
 img: object  # Declare variable 'img'
 

@@ -1,5 +1,5 @@
 # proceso
-> A Python package for creative coding on the web.
+> A Python package for creative coding on the web
 
 proceso provides a Pythonic interface to the [p5.js](https://p5js.org) library. The package is designed for [Pyodide](https://pyodide.org)-based environments including [PyScript](https://pyscript.net) and (soonish) [JupyterLite](https://jupyterlite.readthedocs.io/en/latest/). Similar to [py5](https://py5coding.org), proceso's goal is to integrate p5.js into the Python ecosystem with thoughtful choices about how to do so in the browser.
 
@@ -51,6 +51,7 @@ canvas {
 ```python
 from proceso import Sketch
 
+
 p5 = Sketch()
 p5.describe("A screen reader accessible description for the canvas.")
 ```
@@ -76,8 +77,8 @@ p5.stroke(127, 63, 120)
 
 # A rectangle
 p5.rect(40, 120, 120, 40)
-# An ellipse
-p5.ellipse(240, 240, 80, 80)
+# A circle
+p5.circle(240, 240, 80)
 # A triangle
 p5.triangle(300, 100, 320, 100, 310, 80)
 
@@ -98,7 +99,7 @@ from proceso import Sketch
 
 
 p5 = Sketch()
-p5.describe("Ten white circles moving in synchrony on a dark blue background.")
+p5.describe("Ten white circles moving like fireflies on a dark blue background.")
 
 bugs = []
 num_bugs = 10
@@ -135,7 +136,7 @@ class Bug:
         self.y = p5.height * 0.5
         self.r = 5
         self.angle = p5.random(p5.TWO_PI)
-        self.dadt = 1
+        self.da_dt = 1
         self.dt = 0.01
         self.freq = p5.random(5, 10)
 
@@ -148,7 +149,7 @@ class Bug:
     def update(self):
         self.x += p5.cos(self.angle)
         self.y += p5.sin(self.angle)
-        self.angle += self.dadt * self.dt
+        self.angle += self.da_dt * self.dt
 
     def check_edges(self):
         if self.x > p5.width + self.r:
@@ -161,9 +162,9 @@ class Bug:
             self.y = p5.height + self.r
 
     def sync(self):
-        self.dadt = self.freq
+        self.da_dt = self.freq
         for bug in bugs:
-            self.dadt += KN * p5.sin(bug.angle - self.angle)
+            self.da_dt += KN * p5.sin(bug.angle - self.angle)
 
 
 p5.run_sketch(setup=setup, draw=draw)
@@ -173,7 +174,7 @@ p5.run_sketch(setup=setup, draw=draw)
 
 **Cloud (account required): PyScript**
 
-[PyScript](https://pyscript.com) is a great way to run proceso sketches with PyScript. Here is an example project that [simulates flocking](https://pyscript.com/view/4b2d42a1-0e0c-430f-8b20-4b2c7ff0dc3e/ab3d05fe-ae90-435b-b351-2029a591b574/latest/).
+[PyScript](https://pyscript.com) is a great way to run proceso sketches with PyScript. Here is a [project template](https://4b2d42a1-0e0c-430f-8b20-4b2c7ff0dc3e.pyscriptapps.com/58197361-1c5f-4d47-93a9-91570255fe85/latest/).
 
 **Cloud (no account required): JupyterLite**
 

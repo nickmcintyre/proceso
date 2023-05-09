@@ -11,6 +11,7 @@ from proceso import Sketch
 
 
 p5 = Sketch()
+p5.describe("A live video feed displayed with inverted colors.")
 
 capture = None
 

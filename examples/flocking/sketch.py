@@ -11,6 +11,7 @@ from proceso import Sketch
 
 
 p5 = Sketch()
+p5.describe("Twenty gray circles moving like a flock of birds on a gray background.")
 
 boids = []
 

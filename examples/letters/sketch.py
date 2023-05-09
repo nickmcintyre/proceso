@@ -12,7 +12,7 @@ from proceso import Sketch
 
 
 p5 = Sketch()
-
+p5.describe("Letters, numbers, and symbols are displayed in white on a gray background. Vowels are highlighted in pink.")
 
 font: object
 font_size = 32

@@ -10,6 +10,7 @@ from proceso import Sketch
 
 
 p5 = Sketch()
+p5.describe("Two white eggs rock back and forth as rings propagate from their centers.")
 
 
 class Egg:

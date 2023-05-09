@@ -9,6 +9,7 @@ from proceso import Sketch
 
 
 p5 = Sketch()
+p5.describe("A rectangle, circle, triangle, and flower drawn in pink on a gray background.")
 
 # Create the canvas
 p5.create_canvas(720, 400)

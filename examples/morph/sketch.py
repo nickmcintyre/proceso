@@ -9,6 +9,7 @@ from proceso import Sketch
 
 
 p5 = Sketch()
+p5.describe("A white shape on a dark gray background repeatedly morphs between a square and a circle.")
 
 # Two lists to store the vertices for two shapes
 # This example assumes that each shape will have the same

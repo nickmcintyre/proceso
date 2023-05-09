@@ -10,6 +10,7 @@ from proceso import Sketch
 
 
 p5 = Sketch()
+p5.describe("Three sets of four gray, horizontal lines on a black background.")
 
 p5.create_canvas(720, 400)
 p5.background(0)

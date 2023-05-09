@@ -10,6 +10,7 @@ from proceso import Sketch
 
 
 p5 = Sketch()
+p5.describe("Two rows of vertical lines drawn in different five different colors.")
 
 p5.create_canvas(710, 400)
 p5.no_stroke()

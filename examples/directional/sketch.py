@@ -12,6 +12,7 @@ from proceso import Sketch
 
 
 p5 = Sketch()
+p5.describe("Two gray spheres are illuminated when someone moves their mouse over them.")
 
 radius = 200
 

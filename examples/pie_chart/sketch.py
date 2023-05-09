@@ -9,6 +9,7 @@ from proceso import Sketch
 
 
 p5 = Sketch()
+p5.describe("A grayscale pie chart on a dark gray background.")
 
 angles = [30, 10, 45, 35, 60, 38, 75, 67]
 

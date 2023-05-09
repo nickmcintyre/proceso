@@ -11,6 +11,7 @@ from proceso import Sketch
 
 
 p5 = Sketch()
+p5.describe("A grid of green spirals on a black background. The spirals change their motion based on the mouse position.")
 
 
 def setup():

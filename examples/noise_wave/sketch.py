@@ -9,6 +9,7 @@ from proceso import Sketch
 
 
 p5 = Sketch()
+p5.describe("A noisy, white wave drawn on a dark gray background.")
 
 yoff = 0.0  # 2nd dimension of perlin noise
 
