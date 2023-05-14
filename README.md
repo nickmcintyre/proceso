@@ -3,7 +3,7 @@
 
 proceso provides a Pythonic interface to the [p5.js](https://p5js.org) library. The package is designed for [Pyodide](https://pyodide.org)-based environments including [PyScript](https://pyscript.net) and (soonish) [JupyterLite](https://jupyterlite.readthedocs.io/en/latest/). Similar to [py5](https://py5coding.org), proceso's goal is to integrate p5.js into the Python ecosystem with thoughtful choices about how to do so in the browser.
 
-Here is an example of how to create a proceso sketch with PyScript:
+Here is an example of how to create a proceso sketch with PyScript using HTML, CSS, and Python:
 
 **index.html**
 
@@ -104,7 +104,6 @@ p5.describe("Ten white circles moving like fireflies on a dark blue background."
 bugs = []
 num_bugs = 10
 coupling: object
-KN: float
 
 
 def setup():
@@ -112,22 +111,20 @@ def setup():
     global coupling
     coupling = p5.create_slider(0, 10, 5)
     for _ in range(num_bugs):
-        bugs.append(Bug())
+        bug = Bug()
+        bugs.append(bug)
 
 
 def draw():
     p5.background("midnightblue")
 
-    global KN
-    KN = coupling.value() / num_bugs
-
     for bug in bugs:
         bug.sync()
 
     for bug in bugs:
-        bug.draw()
         bug.update()
         bug.check_edges()
+        bug.draw()
 
 
 class Bug:
@@ -150,6 +147,7 @@ class Bug:
         self.x += p5.cos(self.angle)
         self.y += p5.sin(self.angle)
         self.angle += self.da_dt * self.dt
+        self.da_dt = 0
 
     def check_edges(self):
         if self.x > p5.width + self.r:
@@ -162,9 +160,10 @@ class Bug:
             self.y = p5.height + self.r
 
     def sync(self):
+        K_N = coupling.value() / num_bugs
         self.da_dt = self.freq
         for bug in bugs:
-            self.da_dt += KN * p5.sin(bug.angle - self.angle)
+            self.da_dt += K_N * p5.sin(bug.angle - self.angle)
 
 
 p5.run_sketch(setup=setup, draw=draw)
@@ -172,11 +171,11 @@ p5.run_sketch(setup=setup, draw=draw)
 
 ## Getting Started
 
-**Cloud (account required): PyScript**
+**Cloud: PyScript (account required)**
 
 [PyScript](https://pyscript.com) is a great way to run proceso sketches with PyScript. Here is a [project template](https://4b2d42a1-0e0c-430f-8b20-4b2c7ff0dc3e.pyscriptapps.com/58197361-1c5f-4d47-93a9-91570255fe85/latest/).
 
-**Cloud (no account required): JupyterLite**
+**Cloud: JupyterLite (no account required)**
 
 Coming soonish.
 
