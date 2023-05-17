@@ -96,10 +96,10 @@ class Shape(BaseSketch):
         """Draws a quad on the canvas.
         A quad is a quadrilateral, a four-sided polygon. It is similar to a
         rectangle, but the angles between its edges are not constrained to ninety
-        degrees. The first pair of parameters (x1,y1) sets the first vertex and
-        the subsequent pairs should proceed clockwise or counter-clockwise around
-        the defined shape. z-arguments only work when quad() is used in WEBGL
-        mode.
+        degrees. The first pair of parameters (x1, y1) sets the first vertex
+        and the subsequent pairs should proceed clockwise or counter-clockwise
+        around the defined shape. z-arguments only work when quad() is used in
+        WEBGL mode.
         """
         self._p5js.quad(x1, y1, x2, y2, x3, y3, x4, y4, detail_x, detail_y, *args)
 
@@ -207,29 +207,30 @@ class Shape(BaseSketch):
         self._p5js.noSmooth()
 
     def rect_mode(self, mode: str):
-        """Modifies the location from which rectangles are drawn by changing the
-        way in which parameters given to rect() are interpreted.
+        """Modifies the location from which rectangles are drawn by changing
+        the way in which parameters given to rect() are interpreted.
 
-        The default mode is CORNER, which interprets the first two parameters as
-        the upper-left corner of the shape, while the third and fourth parameters
-        are its width and height.
+        The default mode is CORNER, which interprets the first two parameters
+        as the upper-left corner of the shape, while the third and fourth
+        parameters are its width and height.
 
-        rectMode(CORNERS) interprets the first two parameters as the location of
-        one of the corners, and the third and fourth parameters as the location
-        of the diagonally opposite corner. Note, the rectangle is drawn between
-        the coordinates, so it is not necessary that the first corner be the
-        upper left corner.
+        rect_mode(CORNERS) interprets the first two parameters as the location
+        of one of the corners, and the third and fourth parameters as the
+        location of the diagonally opposite corner. Note, the rectangle is
+        drawn between the coordinates, so it is not necessary that the first
+        corner be the upper left corner.
 
-        rectMode(CENTER) interprets the first two parameters as the shape's center
-        point, while the third and fourth parameters are its width and height.
+        rect_mode(CENTER) interprets the first two parameters as the shape's
+        center point, while the third and fourth parameters are its width and
+        height.
 
-        rectMode(RADIUS) also uses the first two parameters as the shape's center
-        point, but uses the third and fourth parameters to specify half of the
-        shape's width and height respectively.
+        rect_mode(RADIUS) also uses the first two parameters as the shape's
+        center point, but uses the third and fourth parameters to specify half
+        of the shape's width and height respectively.
 
-        The parameter to this function must be written in ALL CAPS because they
-        are predefined as constants in ALL CAPS and Python is a case-sensitive
-        language.
+        The parameter to this function must be written in ALL CAPS because
+        they are predefined as constants in ALL CAPS and Python is a
+        case-sensitive language.
         """
         self._p5js.rectMode(mode)
 
@@ -240,8 +241,9 @@ class Shape(BaseSketch):
         Note that smooth() is active by default in 2D mode; no_smooth() can be
         used to disable smoothing of geometry, images, and fonts.
 
-        In 3D mode, no_smooth() is enabled by default, so it is necessary to call
-        smooth() if you would like smooth (antialiased) edges on your geometry.
+        In 3D mode, no_smooth() is enabled by default, so it is necessary to
+        call smooth() if you would like smooth (antialiased) edges on your
+        geometry.
         """
         self._p5js.smooth()
 
