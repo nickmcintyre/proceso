@@ -1,7 +1,7 @@
 # proceso
 > A Python package for creative coding on the web
 
-proceso is a Python package for creative coding on the web, with a focus on making coding accessible and inclusive for artists, designers, educators, beginners, and anyone else! The package provides a Pythonic interface to the [p5.js](https://p5js.org) library and is heavily inspired by [py5](https://py5coding.org). proceso is designed for [Pyodide](https://pyodide.org)-based with an emphasis on [PyScript](https://pyscript.net).
+proceso is a Python package for creative coding on the web, with a focus on making coding accessible and inclusive for artists, designers, educators, beginners, and anyone else! The package provides a Pythonic interface to the [p5.js](https://p5js.org) library and is heavily inspired by [py5](https://py5coding.org). proceso is designed for [Pyodide](https://pyodide.org)-based environments with a focus on [PyScript](https://pyscript.net).
 
 Here is an example of how to create a proceso sketch with PyScript using HTML, CSS, and Python:
 
