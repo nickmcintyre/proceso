@@ -1,7 +1,7 @@
 # proceso
 > A Python package for creative coding on the web
 
-proceso provides a Pythonic interface to the [p5.js](https://p5js.org) library. The package is designed for [Pyodide](https://pyodide.org)-based environments including [PyScript](https://pyscript.net) and (soonish) [JupyterLite](https://jupyterlite.readthedocs.io/en/latest/). Similar to [py5](https://py5coding.org), proceso's goal is to integrate p5.js into the Python ecosystem with thoughtful choices about how to do so in the browser.
+proceso is a Python package for creative coding on the web, with a focus on making coding accessible and inclusive for artists, designers, educators, beginners, and anyone else! The package provides a Pythonic interface to the [p5.js](https://p5js.org) library and is heavily inspired by [py5](https://py5coding.org). proceso is designed for [Pyodide](https://pyodide.org)-based with an emphasis on [PyScript](https://pyscript.net).
 
 Here is an example of how to create a proceso sketch with PyScript using HTML, CSS, and Python:
 
@@ -179,12 +179,6 @@ p5.run_sketch(setup=setup, draw=draw)
 
 [PyScript](https://pyscript.com) is a great way to run proceso sketches with PyScript. Here is a [project template](https://pyscript.com/view/4b2d42a1-0e0c-430f-8b20-4b2c7ff0dc3e/58197361-1c5f-4d47-93a9-91570255fe85/latest/).
 
-
-
-**Cloud: JupyterLite (no account required)**
-
-Coming soonish.
-
 **Local: Anaconda + VS Code**
 
 Here is one possible setup for running sketches on your local machine:
@@ -201,9 +195,7 @@ Here is one possible setup for running sketches on your local machine:
 ## Roadmap
 
 - Improve documentation
-- Fix known bugs
-- Finish API
-- Support JupyterLite
+- Finish IO API
 - Translate p5.js test suite?
 - Add CLI with hot reload
 - Add bindings for p5.js addon libraries
