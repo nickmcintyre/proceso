@@ -1,7 +1,7 @@
 import collections
 from pyodide.ffi import to_js
 
-from ._binding import BaseSketch
+from .binding import BaseSketch
 
 
 class Transform(BaseSketch):

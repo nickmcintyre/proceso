@@ -1,10 +1,9 @@
-from typing import Any
 from pyodide.ffi import to_js
 
-from ._binding import BaseSketch
+from .binding import BaseSketch
 
 
-class Colors(BaseSketch):
+class Color(BaseSketch):
     # ==================
     # Creating & Reading
     # ==================

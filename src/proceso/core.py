@@ -1,7 +1,7 @@
 from typing import Callable
 
 
-from .colors import Colors
+from .color import Color
 from .data import Data
 from .dom import DOM
 from .environment import Environment
@@ -24,7 +24,7 @@ from .typography import Typography
 
 
 class Sketch(
-    Colors,
+    Color,
     Data,
     DOM,
     Environment,
@@ -63,7 +63,7 @@ class Sketch(
         request_pointer_lock: Callable | None = None,
         exit_pointer_lock: Callable | None = None,
     ):
-        """"Run a sketch in active mode."""
+        """"Runs a sketch in active mode."""
         import inspect
         from pyodide.ffi import create_proxy
 

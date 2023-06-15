@@ -25,7 +25,7 @@ class SystemVariables:
     ]
     display_width: Annotated[
         int,
-        """System variable that stores the width of the screen display according to The default pixel_density. This is used to run a full-screen program on any display size.
+        """System variable that stores the width of the screen display according to the default pixel_density. This is used to run a full-screen program on any display size.
         To return actual screen size, multiply this by pixel_density.
         """,
     ]
@@ -59,7 +59,7 @@ class SystemVariables:
     height: Annotated[
         int,
         """System variable that stores the height of the drawing canvas. This
-        value is set by the second parameter of the createCanvas() function. For
+        value is set by the second parameter of the create_canvas() function. For
         example, the function call create_canvas(320, 240) sets the height
         variable to the value 240. The value of height defaults to 100 if
         create_canvas() is not used in a program.
@@ -144,7 +144,7 @@ class SystemVariables:
     rotation_z: Annotated[
         float,
         """The system variable rotation_z always contains the rotation of the
-        device along the z axis. If the sketch angleMode() is set to DEGREES,
+        device along the z axis. If the sketch angle_mode() is set to DEGREES,
         the value will be 0 to 360. If it is set to RADIANS, the value will be 0
         to 2*PI.
 
@@ -262,7 +262,7 @@ class SystemVariables:
         the mouse or finger in the frame previous to the current frame,
         relative to (0, 0) of the canvas. The value at the top-left corner is
         (0, 0) for 2-D and (-width/2, -height/2) for WebGL.
-        Note: pmouse_x will be reset to the current mouseX value at the start of
+        Note: pmouse_x will be reset to the current mouse_x value at the start of
         each touch event.
         """,
     ]
@@ -272,7 +272,7 @@ class SystemVariables:
         the mouse or finger in the frame previous to the current frame,
         relative to (0, 0) of the canvas. The value at the top-left corner is
         (0, 0) for 2-D and (-width/2, -height/2) for WebGL.
-        Note: pmouse_y will be reset to the current mouseY value at the start of
+        Note: pmouse_y will be reset to the current mouse_y value at the start of
         each touch event.
         """,
     ]
@@ -323,12 +323,12 @@ class SystemVariables:
     # touch_ended
     touches: Annotated[
         list[object],
-        """The system variable touches[] contains an array of the positions of all
+        """The system variable touches[] contains a list of the positions of all
         current touch points, relative to (0, 0) of the canvas, and IDs
-        identifying a unique touch as it moves. Each element in the array is an
+        identifying a unique touch as it moves. Each element in the list is an
         object with x, y, and id properties.
 
-        The touches[] array is not supported on Safari and IE on touch-based
+        The touches[] list is not supported on Safari and IE on touch-based
         desktops (laptops).
         """,
     ]
@@ -336,7 +336,7 @@ class SystemVariables:
     pixels: Annotated[
         list[float],
         """List containing the values for all the pixels in the display window.
-        These values are numbers. This array is the size (include an appropriate
+        These values are numbers. This list is the size (include an appropriate
         factor for pixel_density) of the display window x4, representing the
         R, G, B, A values in order for each pixel, moving from left to right
         across each row, then down each column. Retina and other high density
@@ -344,7 +344,7 @@ class SystemVariables:
         example, if the image is 100×100 pixels, there will be 40,000. On a
         retina display, there will be 160,000.
 
-        The first four values (indices 0-3) in the array will be the R, G, B, A
+        The first four values (indices 0-3) in the list will be the R, G, B, A
         values of the pixel at (0, 0). The second four values (indices 4-7) will
         contain the R, G, B, A values of the pixel at (1, 0).
         """,

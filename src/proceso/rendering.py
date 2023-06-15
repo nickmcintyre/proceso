@@ -1,6 +1,6 @@
 from typing import Any
 
-from ._binding import BaseSketch
+from .binding import BaseSketch
 
 
 class Rendering(BaseSketch):
@@ -24,9 +24,14 @@ class Rendering(BaseSketch):
         this function. If create_canvas() is not used, the window will be given a
         default size of 100×100 pixels.
         """
+        from pyodide.code import run_js
+
         self.width = width
         self.height = height
-        return self._p5js.createCanvas(width, height, renderer)
+        canvas = self._p5js.createCanvas(width, height, renderer)
+        set_canvas_id = f"{self.id}.canvas.setAttribute('id', '{self.id}');"
+        run_js(set_canvas_id)
+        return canvas
 
     def size(self, width: int, height: int, renderer: str | None = None) -> object:
         """Creates a canvas element in the document and sets its dimensions in
@@ -46,15 +51,15 @@ class Rendering(BaseSketch):
         this function. If size() is not used, the window will be given a
         default size of 100×100 pixels.
         """
-        self.width = width
-        self.height = height
-        return self._p5js.createCanvas(width, height, renderer)
+        return self.create_canvas(width, height, renderer)
 
     def resize_canvas(self, width: int, height: int, no_redraw: bool | None = None):
         """Resizes the canvas to given width and height.
         The canvas will be cleared and draw will be called immediately, allowing
         the sketch to re-render itself in the resized canvas.
         """
+        self.width = width
+        self.height = height
         self._p5js.resizeCanvas(width, height, no_redraw)
 
     def no_canvas(self):

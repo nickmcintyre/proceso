@@ -1,4 +1,4 @@
-from ._binding import BaseSketch
+from .binding import BaseSketch
 
 
 class Structure(BaseSketch):

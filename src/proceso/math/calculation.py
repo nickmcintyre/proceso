@@ -1,6 +1,6 @@
 import math
 
-from .._binding import BaseSketch
+from ..binding import BaseSketch
 
 
 class Calculation(BaseSketch):

@@ -14,7 +14,7 @@ p5.describe("A white line is drawn when someone presses down on a light blue bac
 
 def setup():
     p5.create_canvas(710, 400)
-    p5.background("dodgerblue")
+    p5.background("cornflowerblue")
 
 
 def draw():

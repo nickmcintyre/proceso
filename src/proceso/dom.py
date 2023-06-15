@@ -1,7 +1,7 @@
 from typing import Callable
 from pyodide.ffi import create_proxy, to_js
 
-from ._binding import BaseSketch
+from .binding import BaseSketch
 
 
 class DOM(BaseSketch):
@@ -162,7 +162,7 @@ class DOM(BaseSketch):
         """
         if callback:
             return self._p5js.createVideo(src, create_proxy(callback))
-        return self._p5js.createCanvas(src)
+        return self._p5js.createVideo(src)
 
     def create_audio(
         self, src: str | list[str], callback: Callable | None = None
