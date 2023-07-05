@@ -25,7 +25,7 @@ class Calculation(BaseSketch):
         """Calculates the distance between two points, in either two or three
         dimensions.
         """
-        return self._p5js.dist(x1, y2, x2, y2, *args)
+        return self._p5js.dist(x1, y1, x2, y2, *args)
 
     def exp(self, n: float) -> float:
         """Returns Euler's number e (2.71828...) raised to the power of the n
@@ -67,7 +67,7 @@ class Calculation(BaseSketch):
         vector can be thought of as the distance from the coordinate 0,0 to its
         x,y value. Therefore, mag() is a shortcut for writing dist(0, 0, x, y).
         """
-        return dist(0, 0, a, b)
+        return self._p5js.mag(a, b)
 
     def remap(
         self,
