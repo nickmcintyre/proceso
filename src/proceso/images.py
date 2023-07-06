@@ -155,11 +155,11 @@ class Images(BaseSketch):
         maximum value as specified by color_mode(). The default maximum value is
         255.
         """
-        if v4:
+        if v4 is not None:
             self._p5js.tint(value, v2, v3, v4)
-        elif v3:
+        elif v3 is not None:
             self._p5js.tint(value, v2, v3)
-        elif v2:
+        elif v2 is not None:
             self._p5js.tint(value, v2)
         else:
             self._p5js.tint(to_js(value))

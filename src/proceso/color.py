@@ -49,11 +49,11 @@ class Color(BaseSketch):
         alpha number value as a second argument is not supported, the RGBA
         form should be used.
         """
-        if v4:
+        if v4 is not None:
             return self._p5js.color(value, v2, v3, v4).toString()
-        if v3:
+        if v3 is not None:
             return self._p5js.color(value, v2, v3).toString()
-        if v2:
+        if v2 is not None:
             return self._p5js.color(value, v2).toString()
         return self._p5js.color(to_js(value)).toString()
 
@@ -136,11 +136,11 @@ class Color(BaseSketch):
         with each value in the range from 0 to 255). The alpha range by
         default is also 0 to 255.
         """
-        if v4:
+        if v4 is not None:
             self._p5js.background(value, v2, v3, v4)
-        elif v3:
+        elif v3 is not None:
             self._p5js.background(value, v2, v3)
-        elif v2:
+        elif v2 is not None:
             self._p5js.background(value, v2)
         else:
             self._p5js.background(to_js(value))
@@ -186,13 +186,13 @@ class Color(BaseSketch):
         in, so you can change modes as you like without affecting their
         appearance.
         """
-        if max4:
+        if max4 is not None:
             self._p5js.colorMode(mode, max1, max2, max3, max4)
-        elif max3:
+        elif max3 is not None:
             self._p5js.colorMode(mode, max1, max2, max3)
-        elif max2:
+        elif max2 is not None:
             self._p5js.colorMode(mode, max1, max2)
-        elif max1:
+        elif max1 is not None:
             self._p5js.colorMode(mode, max1)
         else:
             self._p5js.colorMode(mode)
@@ -217,11 +217,11 @@ class Color(BaseSketch):
         alpha number value as a second argument is not supported, the RGBA
         form should be used.
         """
-        if v4:
+        if v4 is not None:
             self._p5js.fill(value, v2, v3, v4)
-        elif v3:
+        elif v3 is not None:
             self._p5js.fill(value, v2, v3)
-        elif v2:
+        elif v2 is not None:
             self._p5js.fill(value, v2)
         else:
             self._p5js.fill(to_js(value))
@@ -257,11 +257,11 @@ class Color(BaseSketch):
         alpha number value as a second argument is not supported, the RGBA
         form should be used.
         """
-        if v4:
+        if v4 is not None:
             self._p5js.stroke(value, v2, v3, v4)
-        elif v3:
+        elif v3 is not None:
             self._p5js.stroke(value, v2, v3)
-        elif v2:
+        elif v2 is not None:
             self._p5js.stroke(value, v2)
         else:
             self._p5js.stroke(to_js(value))

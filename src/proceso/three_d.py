@@ -67,11 +67,11 @@ class ThreeD(BaseSketch):
         draw() to remain persistent in a looping program. Placing them in setup()
         will cause them to only have an effect the first time through the loop.
         """
-        if v4:
+        if v4 is not None:
             self._p5js.ambientLight(value, v2, v3, v4)
-        elif v3:
+        elif v3 is not None:
             self._p5js.ambientLight(value, v2, v3)
-        elif v2:
+        elif v2 is not None:
             self._p5js.ambientLight(value, v2)
         else:
             self._p5js.ambientLight(to_js(value))
@@ -98,9 +98,9 @@ class ThreeD(BaseSketch):
         Note: specular_color is equivalent to the Processing function
         lightSpecular.
         """
-        if v3:
+        if v3 is not None:
             self._p5js.specularColor(value, v2, v3)
-        elif v2:
+        elif v2 is not None:
             self._p5js.specularColor(value, v2)
         else:
             self._p5js.specularColor(to_js(value))
@@ -220,9 +220,9 @@ class ThreeD(BaseSketch):
         draw() to remain persistent in a looping program. Placing them in setup()
         will cause them to only have an effect the first time through the loop.
         """
-        if concentration:
+        if concentration is not None:
             self._p5js.spotLight(v1, v2, v3, x, y, z, rx, ry, rz, angle, concentration)
-        elif angle:
+        elif angle is not None:
             self._p5js.spotLight(v1, v2, v3, x, y, z, rx, ry, rz, angle)
         else:
             self._p5js.spotLight(v1, v2, v3, x, y, z, rx, ry, rz)
@@ -267,7 +267,7 @@ class ThreeD(BaseSketch):
         If no parameters are given, the following default is used:
         camera(0, 0, (height/2) / tan(PI/6), 0, 0, 0, 0, 1, 0)
         """
-        if not up_z:
+        if up_z is None:
             self._p5js.camera(
                 0, 0, (self._p5js.height * 0.5) / 0.5773502691896256, 0, 0, 0, 0, 1, 0
             )
@@ -295,7 +295,7 @@ class ThreeD(BaseSketch):
         perspective(PI/3, width/height, eyeZ/10, eyeZ*10), where eyeZ is equal to
         ((height/2) / tan(PI/6)).
         """
-        if not far:
+        if far is None:
             eye_z = self._p5js.height * 0.5 / 0.5773502691896256
             self._p5js.perspective(
                 1.0471975511965976,
@@ -328,7 +328,7 @@ class ThreeD(BaseSketch):
         If no parameters are given, the following default is used:
         ortho(-width/2, width/2, -height/2, height/2).
         """
-        if not far:
+        if far is None:
             self._p5js.ortho(
                 -self._p5js.width * 0.5,
                 self._p5js.width * 0.5,
@@ -363,7 +363,7 @@ class ThreeD(BaseSketch):
         If no parameters are given, the following default is used:
         frustum(-width/2, width/2, -height/2, height/2, 0, max(width, height)).
         """
-        if not far:
+        if far is None:
             self._p5js.frustum(
                 -self._p5js.width * 0.5,
                 self._p5js.width * 0.5,

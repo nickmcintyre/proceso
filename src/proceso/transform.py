@@ -34,9 +34,9 @@ class Transform(BaseSketch):
 
         https://html.spec.whatwg.org/multipage/canvas.html#dom-context-2d-transform
         """
-        if p:
+        if p is not None:
             self._p5js.applyMatrix(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p)
-        elif f:
+        elif f is not None:
             self._p5js.applyMatrix(a, b, c, d, e, f)
         elif isinstance(a, collections.Sequence):
             self._p5js.applyMatrix(to_js(a))
