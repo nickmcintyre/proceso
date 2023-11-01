@@ -24,19 +24,20 @@ p5.describe("A screen reader accessible description for the canvas.")
 <head>
     <title>My Sketch</title>
     <meta charset="utf-8" />
-
-    <link rel="stylesheet" href="https://pyscript.net/releases/2023.05.1/pyscript.css" />
-    <script defer src="https://pyscript.net/releases/2023.05.1/pyscript.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    
+    <!-- Load PyScript -->
+    <link rel="stylesheet" href="https://pyscript.net/snapshots/2023.09.1.RC2/core.css">
+    <script type="module" src="https://pyscript.net/snapshots/2023.09.1.RC2/core.js"></script>
+    <!-- Load p5.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.8.0/p5.min.js"></script>
+    <!-- Load custom styles -->
     <link rel="stylesheet" href="style.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
-    <py-config>
-        packages = ["proceso"]
-    </py-config>
 </head>
 
 <body>
-    <main></main>
-    <py-script src="sketch.py"></py-script>
+    <!-- Load sketch -->
+    <script type="py" src="sketch.py" config="pyscript.json"></script>
 </body>
 
 </html>
@@ -53,6 +54,14 @@ body {
 
 canvas {
     display: block;
+}
+```
+
+**pyscript.json**
+
+```json
+{
+    "packages": ["proceso"]
 }
 ```
 
@@ -177,20 +186,16 @@ p5.run_sketch(setup=setup, draw=draw)
 
 **Cloud: PyScript (account required)**
 
-[PyScript](https://pyscript.com) is a great way to run proceso sketches with PyScript. Here is a [project template](https://pyscript.com/view/4b2d42a1-0e0c-430f-8b20-4b2c7ff0dc3e/58197361-1c5f-4d47-93a9-91570255fe85/latest/).
+[PyScript](https://pyscript.com) is a great way to run proceso sketches with PyScript. Here's a [project template](https://pyscript.com/view/4b2d42a1-0e0c-430f-8b20-4b2c7ff0dc3e/58197361-1c5f-4d47-93a9-91570255fe85/latest/).
 
-**Local: Anaconda + VS Code**
+**Local: VS Code**
 
-Here is one possible setup for running sketches on your local machine:
+Here's one possible setup for running sketches on your local machine:
 
-1. Install the [Anaconda Distribution of Python](https://www.anaconda.com/download).
-2. Install [Visual Studio Code](https://code.visualstudio.com/).
-3. [Get started with Anaconda Navigator](https://docs.anaconda.com/free/navigator/) and create a new Python environment with Python 3.10.
-4. Use the Navigator to open a terminal with your new Python environment and `pip install proceso`.
-5. Open VS Code and install the [Microsoft Python extension](https://code.visualstudio.com/docs/languages/python) to enable helpful features such as documentation, autocompletion, and so on.
-6. [Select the interpreter](https://code.visualstudio.com/docs/python/environments#_manually-specify-an-interpreter) created by your new Python environment.
-7. Add your HTML, CSS, and Python files and start coding.
-8. [Open the terminal](https://code.visualstudio.com/docs/terminal/basics) in VS Code and run `python -m http.server` to view your sketch in the browser.
+1. Install [Visual Studio Code](https://code.visualstudio.com/).
+2. Install the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension.
+3. Add your HTML, CSS, JSON, and Python files.
+4. Open `index.html` with Live Server and start coding.
 
 ## Roadmap
 

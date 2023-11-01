@@ -4,19 +4,20 @@
 <head>
     <title>Load and Display Image</title>
     <meta charset="utf-8" />
-
-    <link rel="stylesheet" href="https://pyscript.net/releases/2023.05.1/pyscript.css" />
-    <script defer src="https://pyscript.net/releases/2023.05.1/pyscript.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    
+    <!-- Load PyScript -->
+    <link rel="stylesheet" href="https://pyscript.net/snapshots/2023.09.1.RC2/core.css">
+    <script type="module" src="https://pyscript.net/snapshots/2023.09.1.RC2/core.js"></script>
+    <!-- Load p5.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.8.0/p5.min.js"></script>
+    <!-- Load custom styles -->
     <link rel="stylesheet" href="style.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
-    <py-config>
-        packages = ["proceso"]
-    </py-config>
 </head>
 
 <body>
-    <main></main>
-    <py-script src="sketch.py"></py-script>
+    <!-- Load sketch -->
+    <script type="py" src="sketch.py" config="pyscript.json"></script>
 </body>
 
 </html>
