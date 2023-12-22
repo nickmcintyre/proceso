@@ -127,9 +127,9 @@ class Environment(BaseSketch):
         """
         return self._p5js.getTargetFrameRate()
 
-    def hide_cursor(self):
+    def no_cursor(self):
         """Hides the cursor from view."""
-        self._p5js.hideCursor()
+        self._p5js.noCursor()
 
     def fullscreen(self, val: bool | None = None) -> bool:
         """If argument is given, sets the sketch to fullscreen or not based on the
