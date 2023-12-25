@@ -21,6 +21,7 @@ class BaseSketch(Constants, SystemVariables):
         run_js(set_canvas_id)
         self._p5js = getattr(js.window, self.id)
         self._init_constants()
+        self._update_system_variables()
     
     def run_sketch(
         self,

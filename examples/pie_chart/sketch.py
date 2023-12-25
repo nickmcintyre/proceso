@@ -13,7 +13,7 @@ p5.describe("A grayscale pie chart on a dark gray background.")
 
 angles = [30, 10, 45, 35, 60, 38, 75, 67]
 
-p5.create_canvas(720, 400)
+p5.create_canvas(p5.window_width, p5.window_height)
 p5.background(100)
 p5.no_stroke()
 

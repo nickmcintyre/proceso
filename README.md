@@ -1,7 +1,7 @@
 # proceso
 > A Python package for creative coding on the web
 
-proceso is a Python package for creative coding on the web, with a focus on making coding accessible and inclusive for artists, designers, educators, beginners, and anyone else! The package provides a Pythonic interface to the [p5.js](https://p5js.org) library and is heavily inspired by [py5](https://py5coding.org). proceso is designed for [Pyodide](https://pyodide.org)-based environments with a focus on [PyScript](https://pyscript.net).
+proceso is a Python package for creative coding on the web, with a focus on making coding accessible and inclusive for artists, designers, educators, beginners, and anyone else! The package provides a Pythonic interface to the [p5.js](https://p5js.org) library and is heavily inspired by [py5](https://py5coding.org). proceso is built with [PyScript](https://pyscript.net).
 
 Here is an example of how to create a proceso sketch with PyScript using Python, HTML, and CSS:
 
@@ -27,10 +27,10 @@ p5.describe("A screen reader accessible description for the canvas.")
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     
     <!-- Load PyScript -->
-    <link rel="stylesheet" href="https://pyscript.net/snapshots/2023.09.1.RC2/core.css">
-    <script type="module" src="https://pyscript.net/snapshots/2023.09.1.RC2/core.js"></script>
+     <link rel="stylesheet" href="https://pyscript.net/releases/2023.11.1/core.css" />
+     <script type="module" src="https://pyscript.net/releases/2023.11.1/core.js"></script> 
     <!-- Load p5.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.8.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
     <!-- Load custom styles -->
     <link rel="stylesheet" href="style.css" />
 </head>
