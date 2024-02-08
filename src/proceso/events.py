@@ -38,3 +38,16 @@ class Events(BaseSketch):
         pointerLock for example to make ui elements usable etc.
         """
         self._p5js.exitPointerLock()
+
+    # =====
+    # Keyboard
+    # =====
+    def key_is_down(self, code: int) -> bool:
+        """The key_is_down() function checks if the key is currently down, i.e.
+        pressed. It can be used if you have an object that moves, and you want
+        several keys to be able to affect its behaviour simultaneously, such as
+        moving a sprite diagonally. You can put in any number representing the
+        keyCode of the key, or use any of the variable keyCode names listed here
+        http://p5js.org/reference/#p5/keyCode.
+        """
+        return self._p5js.keyIsDown(code)

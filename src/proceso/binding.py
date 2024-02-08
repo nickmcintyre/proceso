@@ -31,7 +31,6 @@ class BaseSketch(Constants, SystemVariables):
         key_pressed: Callable | None = None,
         key_released: Callable | None = None,
         key_typed: Callable | None = None,
-        key_is_down: Callable | None = None,
         mouse_moved: Callable | None = None,
         mouse_dragged: Callable | None = None,
         mouse_pressed: Callable | None = None,
@@ -42,7 +41,7 @@ class BaseSketch(Constants, SystemVariables):
         request_pointer_lock: Callable | None = None,
         exit_pointer_lock: Callable | None = None,
     ):
-        """"Runs a sketch in active mode."""
+        """Runs a sketch in active mode."""
         import inspect
         from pyodide.ffi import create_proxy
 
@@ -79,8 +78,6 @@ class BaseSketch(Constants, SystemVariables):
             self._p5js.keyReleased = wrap_event_func(key_released)
         if callable(key_typed):
             self._p5js.keyTyped = wrap_event_func(key_typed)
-        if callable(key_is_down):
-            self._p5js.keyIsDown = create_proxy(key_is_down)
         if callable(mouse_moved):
             self._p5js.mouseMoved = wrap_event_func(mouse_moved)
         if callable(mouse_dragged):
